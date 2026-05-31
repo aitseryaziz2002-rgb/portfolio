@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Aziz Ait Sery - Portfolio Professionnel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            padding: 40px 20px;
+            color: #1a2c3e;
+        }
+
+        /* Container principal style CV moderne */
+        .portfolio-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        /* en-tête bicolore inspiration bleu/gris */
+        .header-gradient {
+            background: linear-gradient(135deg, #1e3c72 0%, #2b4c7c 100%);
+            padding: 2rem 2.5rem;
+            color: white;
+        }
+
+        .name-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        .name-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            border-left: 3px solid #6c9bd2;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.8rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* contenu deux colonnes sur grand écran */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background: #f9fbfd;
+            width: 34%;
+            padding: 2rem 1.8rem;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .main-content {
+            width: 66%;
+            padding: 2rem 2rem 2rem 2rem;
+            background: white;
+        }
+
+        @media (max-width: 780px) {
+            .sidebar, .main-content {
+                width: 100%;
+                border-right: none;
+            }
+            .sidebar {
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .header-gradient {
+                padding: 1.5rem;
+            }
+            .name-title h1 {
+                font-size: 1.9rem;
+            }
+        }
+
+        /* sections communes */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1e3c72;
+            border-bottom: 2px solid #dce5f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
+        }
+
+        .qualites-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 0.5rem;
+        }
+
+        .badge-qualite {
+            background: #eef2ff;
+            color: #1e3c72;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .langue-item {
+            margin-bottom: 0.7rem;
+        }
+        .langue-name {
+            font-weight: 600;
+        }
+        .langue-level {
+            color: #4a627a;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .experience-item, .edu-item {
+            margin-bottom: 1.5rem;
+        }
+        .exp-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0b2b44;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .exp-date {
+            font-weight: normal;
+            font-size: 0.75rem;
+            color: #5a6e85;
+            background: #f0f4f9;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+        }
+        .exp-sub {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #2c5a8c;
+            margin: 0.2rem 0 0.3rem;
+        }
+        .exp-desc {
+            font-size: 0.9rem;
+            color: #2d3e50;
+            margin-top: 0.4rem;
+            padding-left: 0.2rem;
+            list-style-position: inside;
+        }
+        .exp-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 16px;
+            border-left: 4px solid #2b4c7c;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #e0e7ef, transparent);
+        }
+
+        .linkedin-note {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            text-align: center;
+            color: #5c6f87;
+            border-top: 1px solid #e9eef3;
+            padding-top: 1rem;
+        }
+
+        .btn-copy {
+            background: none;
+            border: 1px solid #cbdde9;
+            padding: 6px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            cursor: pointer;
+            color: #2c5a8c;
+            transition: 0.2s;
+        }
+        .btn-copy:hover {
+            background: #eef2fa;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 0.8rem;
+            font-size: 0.7rem;
+            color: #6a7f9b;
+        }
+    </style>
+</head>
+<body>
+<div class="portfolio-card">
+    <!-- En-tête professionnel -->
+    <div class="header-gradient">
+        <div class="name-title">
+            <h1>AZIZ AIT SERY</h1>
+            <p>Jeune professionnel en Gestion des Entreprises · Rigoureux & orienté client</p>
+        </div>
+        <div class="contact-info">
+            <span>📞 +212 648387657</span>
+            <span>✉️ azizaitsrey@gmail.com</span>
+            <span>📍 El Ksiba, Béni Mellal</span>
+        </div>
+    </div>
+
+    <div class="two-columns">
+        <!-- Colonne latérale : qualités, langues, soft skills -->
+        <div class="sidebar">
+            <!-- Qualités personnelles -->
+            <div class="section">
+                <div class="section-title">QUALITÉS PERSONNELLES</div>
+                <div class="qualites-list">
+                    <span class="badge-qualite">🤝 Esprit d'Équipe</span>
+                    <span class="badge-qualite">🌍 Esprit Ouvert</span>
+                    <span class="badge-qualite">⚖️ Sens de la Responsabilité</span>
+                    <span class="badge-qualite">📚 Apprentissage continu</span>
+                    <span class="badge-qualite">⚡ Actif & Motivé</span>
+                    <span class="badge-qualite">🔒 Intégrité & Honnêteté</span>
+                </div>
+            </div>
+
+            <!-- Langues -->
+            <div class="section">
+                <div class="section-title">LANGUES</div>
+                <div class="langue-item"><span class="langue-name">Arabe</span> <span class="langue-level">(Langue maternelle)</span></div>
+                <div class="langue-item"><span class="langue-name">Tamazight</span> <span class="langue-level">(Langue maternelle)</span></div>
+                <div class="langue-item"><span class="langue-name">Français</span> <span class="langue-level">Intermédiaire (B1/B2)</span></div>
+                <div class="langue-item"><span class="langue-name">Anglais</span> <span class="langue-level">Intermédiaire</span></div>
+            </div>
+
+            <!-- Compétences additionnelles & valeurs -->
+            <div class="section">
+                <div class="section-title">SAVOIR-ÊTRE CLÉS</div>
+                <ul style="margin-left: 1.2rem; color: #2c4c6e; font-size: 0.85rem; line-height: 1.6;">
+                    <li>Organisation et rigueur administrative</li>
+                    <li>Service client & relationnel</li>
+                    <li>Adaptabilité et écoute active</li>
+                    <li>Discrétion professionnelle</li>
+                </ul>
+            </div>
+            <hr>
+            <div style="font-size:0.8rem; color:#3a5e7e;">
+                🎯 « Motivé par les défis et l’amélioration continue, je souhaite mettre mes compétences au service d’une entreprise ambitieuse. »
+            </div>
+        </div>
+
+        <!-- Contenu principal : profil, expériences, formation -->
+        <div class="main-content">
+            <!-- PROFILE section courte mais impact -->
+            <div class="section">
+                <div class="section-title">📋 PROFIL PROFESSIONNEL</div>
+                <div class="profile-text">
+                    Jeune professionnel en Gestion des Entreprises, reconnu pour mon sérieux, ma rigueur et mon sens de l’organisation. 
+                    Fort d’une formation spécialisée et d’expériences terrain en assurance et administration publique, 
+                    je possède des compétences solides en gestion administrative, service client et suivi des opérations. 
+                    <br><br>
+                    Animé par l’amélioration continue, je souhaite participer activement au développement et à la performance d’une équipe dynamique.
+                </div>
+            </div>
+
+            <!-- EXPERIENCES PROFESSIONNELLES -->
+            <div class="section">
+                <div class="section-title">💼 STAGES & EXPÉRIENCES</div>
+                
+                <div class="experience-item">
+                    <div class="exp-title">
+                        <span>Stage – AXA (Maghreb) Assurance</span>
+                        <span class="exp-date">2023</span>
+                    </div>
+                    <div class="exp-sub">Agence Lghrem El Alam</div>
+                    <ul class="exp-desc" style="list-style-type: disc; padding-left: 1rem;">
+                        <li>Acquisition des fondamentaux du secteur de l’assurance et des produits AXA.</li>
+                        <li>Développement du sens du service client : accueil, écoute et orientation.</li>
+                        <li>Participation au suivi administratif et à la gestion de documents clients.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-title">
+                        <span>Stage Administratif – Commune Territoriale Tanougha Ikhourba</span>
+                        <span class="exp-date">2024</span>
+                    </div>
+                    <div class="exp-sub">Service accueil & documentation</div>
+                    <ul class="exp-desc" style="list-style-type: disc; padding-left: 1rem;">
+                        <li>Participation au traitement et au classement des documents administratifs.</li>
+                        <li>Accueil et orientation des usagers de la commune.</li>
+                        <li>Suivi des dossiers administratifs et assistance aux différents services.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FORMATION & DIPLÔMES -->
+            <div class="section">
+                <div class="section-title">🎓 FORMATION</div>
+                <div class="experience-item">
+                    <div class="exp-title">
+                        <span>Diplôme de Technicien Spécialisé en Gestion des Entreprises</span>
+                        <span class="exp-date">2023 – 2025</span>
+                    </div>
+                    <ul class="exp-desc">
+                        <li>Compétences en organisation, communication interne, gestion administrative et outils bureautiques.</li>
+                        <li>Projets pratiques : gestion de processus, relation client, suivi opérationnel.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="exp-title">
+                        <span>Baccalauréat – Sciences Humaines</span>
+                        <span class="exp-date">2022</span>
+                    </div>
+                    <div class="exp-desc">Mention : solides bases en analyse, communication et méthodologie.</div>
+                </div>
+            </div>
+
+            <!-- Valeur ajoutée : engagement et objectif Linkedin -->
+            <div style="background:#edf2f9; border-radius: 20px; padding: 1rem; margin-top: 0.5rem;">
+                <p style="font-weight: 600; display: flex; gap: 6px; align-items: center;">🚀 <span>Ouverture à opportunités</span></p>
+                <p style="font-size: 0.85rem;">Je suis actuellement à la recherche d’un poste en gestion administrative, service client ou assurance. Disponible pour échanger sur toute mission où mon sérieux et ma rigueur peuvent contribuer à la réussite collective.</p>
+            </div>
+        </div>
+    </div>
+    <div class="linkedin-note">
+        ✨ Portfolio professionnel – Aziz Ait Sery | À utiliser sur LinkedIn (section À propos / médias)
+        <button class="btn-copy" id="copyToClipboardBtn" style="margin-left: 12px;">📋 Copier le texte "À propos"</button>
+    </div>
+</div>
+<footer>
+    Portfolio conçu à partir du CV original – valeurs : rigueur, honnêteté, amélioration continue.
+</footer>
+
+<script>
+    // Fonction pour générer un texte "A propos" simple à coller sur LinkedIn (format texte uniquement)
+    function generateAboutText() {
+        return `Aziz Ait Sery – Portfolio Professionnel
+
+🎯 Objectif : Jeune diplômé en Gestion des Entreprises, sérieux, rigoureux et organisé. Expériences en assurance (AXA Maghreb) et administration publique (Commune Tanougha Ikhourba). Je souhaite mettre mes compétences au service d’une entreprise ambitieuse.
+
+💼 Expériences clés :
+- Stage AXA Assurance (2023) : découverte du secteur assurance, service client, suivi administratif.
+- Stage administratif (2024) : accueil usagers, classement documents, suivi dossiers.
+
+🎓 Formation : DTS Gestion des Entreprises (2023-2025) & Bac Sciences Humaines.
+
+🌟 Qualités : Esprit d'équipe, sens des responsabilités, apprentissage continu, intégrité.
+
+🗣 Langues : Arabe (M), Tamazight (M), Français (intermédiaire), Anglais (intermédiaire).
+
+📬 Contact : +212 648387657 / azizaitsrey@gmail.com – El Ksiba, Béni Mellal.
+
+✔ Actuellement ouvert aux opportunités en gestion administrative, service client et assurance.`;
+    }
+
+    const copyBtn = document.getElementById('copyToClipboardBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            const aboutText = generateAboutText();
+            navigator.clipboard.writeText(aboutText).then(() => {
+                // feedback
+                const originalText = copyBtn.innerText;
+                copyBtn.innerText = '✅ Copié !';
+                setTimeout(() => {
+                    copyBtn.innerText = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert("Appuyez sur Ctrl+C pour copier manuellement");
+            });
+        });
+    }
+</script>
+</body>
+</html>
